@@ -1,6 +1,6 @@
-# LaTeX Thesis Template
+# UniBG LaTeX Thesis Template
 
-A simple LaTeX template with the official UniBG thesis formatting.
+A simple LaTeX template with the official UniBG formatting rules.
 
 ## Requirements
 
