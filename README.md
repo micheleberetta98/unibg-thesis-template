@@ -1,3 +1,3 @@
-# LaTeX Thesis Template with UniBG formatting guidelines
+# LaTeX Thesis Template
 
-A simple template with the official UniBG thesis formatting.
+A simple LaTeX template with the official UniBG thesis formatting.
