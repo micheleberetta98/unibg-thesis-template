@@ -1,12 +1,4 @@
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.synctex*
-*.bcf
-*.run.xml
-*.bbl
-*.blg
-*.toc
-*.out
-*.dvi
+dist/*
+
+# Uncomment this if you want to keep the pdf
+# !dist/*.pdf
