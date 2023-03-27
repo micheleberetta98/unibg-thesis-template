@@ -1,0 +1,34 @@
+\documentclass[a4paper,12pt,twoside,openright]{report}
+
+\usepackage{unibg}
+
+\title{A UniBG Thesis}
+\subtitle{A UniBG Subtitle}
+\advisor{Chiar.mo Prof.~John Smith}
+% \coadvisor{Chiar.mo Prof.~Ed Smith}
+
+\department{Department of Engineering}
+\class{LM-32}
+
+\author{John Doe}
+\studentid{69420}
+\year{2021/2022}
+
+\begin{document}
+\maketitle
+\emptypage
+\input{pages/abstract.tex}
+\emptypage
+\toc
+\emptypage
+
+\clearpage
+\pagenumbering{arabic}
+
+\input{chapters/chap01.tex}
+\input{chapters/chap02.tex}
+
+\nocite{*}
+\printbibliography[heading=bibintoc]
+
+\end{document}
