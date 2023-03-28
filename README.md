@@ -49,7 +49,7 @@ See `main.tex` for the full setup.
 
 - *Change between bachelor and master?*
 
-  Use the first parameter to `\maketitle`, either `\maketitle{master}` or `\maketitle{italian}`.
+  Use the first parameter to `\maketitle`, either `\maketitle{master}` or `\maketitle{bachelor}`.
 
 - *Setup a table of contents?*
 
