@@ -50,6 +50,7 @@
 \makeatletter
 \def\subtitle#1{\gdef\@subtitle{#1}}
 \def\department#1{\gdef\@department{#1}}
+\def\course#1{\gdef\@course{#1}}
 \def\class#1{\gdef\@class{#1}}
 \def\advisor#1{\gdef\@advisor{#1}}
 \def\coadvisor#1{\gdef\@coadvisor{#1}}
@@ -68,6 +69,9 @@
     \errmessage{Language must be either 'italian' or 'english'}
   }
   
+  \newcommand{\@trCorsoB}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea in}{Bachelor Degree of}}
+  \newcommand{\@trCorsoM}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea Magistrale in}{Master Degree of}}
+  \newcommand{\@trCorso}{\ifthenelse{\equal{\@degtype}{bachelor}}{\@trCorsoB}{\@trCorsoM}}
   \newcommand{\@trClass}{\ifthenelse{\equal{\@lang}{italian}}{Classe}{Class}}
   \newcommand{\@trAdvisor}{\ifthenelse{\equal{\@lang}{italian}}{Relatore}{Advisor}}
   \newcommand{\@trCoAdvisor}{\ifthenelse{\equal{\@lang}{italian}}{Correlatore}{Co-advisor}}
@@ -83,6 +87,7 @@
       \vspace{0.5cm}
       \normalsize
       \@department \\
+      \@trCorso~\@course \\
       \@trClass~\@class
 
       \vfill
