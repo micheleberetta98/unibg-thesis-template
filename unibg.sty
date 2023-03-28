@@ -10,6 +10,7 @@
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{import}
+\usepackage{multicol}
 \usepackage{xifthen}
 
 % ----------------------- Bibliography
@@ -57,6 +58,10 @@
 \def\studentid#1{\gdef\@studentid{#1}}
 \def\year#1{\gdef\@year{#1}}
 \def\@coadvisor{}
+\def\@subtitle{}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
 
 \renewcommand{\maketitle}[2][italian]{
   \newcommand{\@lang}{#1}
@@ -69,61 +74,110 @@
     \errmessage{Language must be either 'italian' or 'english'}
   }
   
-  \newcommand{\@trCorsoB}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea in}{Bachelor Degree of}}
-  \newcommand{\@trCorsoM}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea Magistrale in}{Master Degree of}}
-  \newcommand{\@trCorso}{\ifthenelse{\equal{\@degtype}{bachelor}}{\@trCorsoB}{\@trCorsoM}}
+  \newcommand{\@trDepartment}{\ifthenelse{\equal{\@lang}{italian}}{Dipartimento di}{Department of}}
+  \newcommand{\@trCourseB}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea in}{Bachelor Degree of}}
+  \newcommand{\@trCourseM}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea Magistrale in}{Master Degree of}}
   \newcommand{\@trClass}{\ifthenelse{\equal{\@lang}{italian}}{Classe}{Class}}
   \newcommand{\@trAdvisor}{\ifthenelse{\equal{\@lang}{italian}}{Relatore}{Advisor}}
   \newcommand{\@trCoAdvisor}{\ifthenelse{\equal{\@lang}{italian}}{Correlatore}{Co-advisor}}
-  \newcommand{\@trTesiLaurea}{\ifthenelse{\equal{\@lang}{italian}}{Tesi di Laurea}{Thesis}}
-  \newcommand{\@trTesiLaureaMagistrale}{\ifthenelse{\equal{\@lang}{italian}}{Tesi di Laurea Magistrale}{Master Thesis}}
+  \newcommand{\@trTesiLaureaB}{\ifthenelse{\equal{\@lang}{italian}}{Tesi di Laurea}{Thesis}}
+  \newcommand{\@trTesiLaureaM}{\ifthenelse{\equal{\@lang}{italian}}{Tesi di Laurea Magistrale}{Master Thesis}}
   \newcommand{\@trStudentNumber}{\ifthenelse{\equal{\@lang}{italian}}{Matricola n.}{Student number}}
-  \newcommand{\@trAnnoAccademico}{\ifthenelse{\equal{\@lang}{italian}}{ANNO ACCADMICO}{ACADEMIC YEAR}}
+  \newcommand{\@trAnnoAccademico}{\ifthenelse{\equal{\@lang}{italian}}{ANNO ACCADEMICO}{ACADEMIC YEAR}}
 
   \begin{titlepage}
-    \begin{center}
-      \large
-      UNIVERSITÀ DEGLI STUDI DI BERGAMO \\
-      \vspace{0.5cm}
-      \normalsize
-      \@department \\
-      \@trCorso~\@course \\
-      \@trClass~\@class
+    \ifthenelse{\equal{\@degtype}{master}}
+      {
+        \begin{center}
+          \large
+          UNIVERSITÀ DEGLI STUDI DI BERGAMO \\
+          \vspace{0.5cm}
+          \normalsize
+          \@trDepartment~\@department \\
+          \@trCourseM~\@course \\
+          \@trClass~\@class
+    
+          \vfill
+    
+          \Huge
+          \textbf{\@title}
+    
+          \LARGE
+          \@subtitle
+        \end{center}
+    
+        \vfill
+    
+        \begin{flushleft}
+          \@trAdvisor \\
+          \@advisor
+        \end{flushleft}
+    
+        \ifthenelse{\equal{\@coadvisor}{}}{}{
+          \begin{flushleft}
+            \@trCoAdvisor \\
+            \@coadvisor
+          \end{flushleft}
+        }
+    
+        \begin{flushright}
+          {\@trTesiLaureaM} \\
+          \@author \\
+          \@trStudentNumber~\@studentid
+        \end{flushright}
+    
+        \vfill
+    
+        \begin{center}
+          \@trAnnoAccademico~\@year
+        \end{center}
+      }
+      {
+        \newcommand{\@trCandidato}{Candidato}
 
-      \vfill
+        \includegraphics[width=8.79cm]{images/unibg-logo-wide.png}
 
-      \Huge
-      \textbf{\@title}
+        \begin{changemargin}{4cm}{0cm}
+          \@trDepartment \\
+          \@department
 
-      \LARGE
-      \@subtitle
-    \end{center}
+          \vspace{0.5cm}
 
-    \vfill
+          \@trCourseB \\
+          \@course
 
-    \begin{flushleft}
-      \@trAdvisor \\
-      \@advisor
-    \end{flushleft}
+          \vspace{0.1cm}
 
-    \ifthenelse{\equal{\@coadvisor}{}}{}{
-      \begin{flushleft}
-        \@trCoAdvisor \\
-        \@coadvisor
-      \end{flushleft}
-    }
+          \@trClass~\@class
 
-    \begin{flushright}
-      \ifthenelse{\equal{\@degtype}{master}}{\@trTesiLaureaMagistrale}{\@trTesiLaurea} \\
-      \@author \\
-      \@trStudentNumber~\@studentid
-    \end{flushright}
+          \vfill
 
-    \vfill
+          {\Huge\textbf{\@title}}
+    
+          {\LARGE\@subtitle}
 
-    \begin{center}
-      \@trAnnoAccademico~\@year
-    \end{center}
+          \vfill
+
+          \begin{multicols}{2}
+          \@trCandidato: \\ \textit{\@author} \\
+          \@trStudentNumber~\@studentid
+
+          \columnbreak
+          
+          \@trAdvisor: \\ \textit{\@advisor}
+          
+          \vspace{0.5cm}
+          
+          \ifthenelse{\equal{\@coadvisor}{}}{}{\@trCoAdvisor: \\ \textit{\@coadvisor}}
+          \end{multicols}
+
+          \vfill
+
+          \@trAnnoAccademico \\
+          \@year
+
+        \end{changemargin}
+      }
   \end{titlepage}
 }
 \makeatother
