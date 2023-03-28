@@ -10,9 +10,10 @@ A simple LaTeX template with the official UniBG formatting rules.
 ## Quick example
 
 ```latex
-\documentclass[a4paper,12pt,openright]{report}
+\documentclass[a4paper,12pt,twoside,openright]{report}
 
 \usepackage[english]{babel}
+\usepackage{unibg}
 
 \title{A UniBG Thesis}
 \subtitle{A UniBG Subtitle}
