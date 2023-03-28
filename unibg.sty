@@ -1,16 +1,16 @@
 \ProvidesPackage{unibg}
 
-\usepackage{fancyhdr}
-\usepackage{geometry}
-\usepackage{graphicx}
 \usepackage[backend=biber]{biblatex}
-\usepackage[english]{babel}
 \usepackage[hidelinks]{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{caption}
 \usepackage{csquotes}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
 \usepackage{import}
+\usepackage{xifthen}
 
 % ----------------------- Bibliography
 \addbibresource{bibliography.bib}
@@ -57,8 +57,27 @@
 \def\coadvisor#1{\gdef\@coadvisor{#1}}
 \def\studentid#1{\gdef\@studentid{#1}}
 \def\year#1{\gdef\@year{#1}}
+\def\@coadvisor{}
 
-\renewcommand{\maketitle}{
+\renewcommand{\maketitle}[2][italian]{
+  \newcommand{\@lang}{#1}
+  \newcommand{\@degtype}{#2}
+  
+  \ifthenelse{\equal{\@degtype}{bachelor} \OR \equal{\@degtype}{master}}{}{
+    \errmessage{Argument must be either 'bachelor' or 'master'}
+  }
+  \ifthenelse{\equal{\@lang}{italian} \OR \equal{\@lang}{english}}{}{
+    \errmessage{Language must be either 'italian' or 'english'}
+  }
+  
+  \newcommand{\@trClass}{\ifthenelse{\equal{\@lang}{italian}}{Classe}{Class}}
+  \newcommand{\@trAdvisor}{\ifthenelse{\equal{\@lang}{italian}}{Relatore}{Advisor}}
+  \newcommand{\@trCoAdvisor}{\ifthenelse{\equal{\@lang}{italian}}{Correlatore}{Co-advisor}}
+  \newcommand{\@trTesiLaurea}{\ifthenelse{\equal{\@lang}{italian}}{Tesi di Laurea}{Thesis}}
+  \newcommand{\@trTesiLaureaMagistrale}{\ifthenelse{\equal{\@lang}{italian}}{Tesi di Laurea Magistrale}{Master Thesis}}
+  \newcommand{\@trStudentNumber}{\ifthenelse{\equal{\@lang}{italian}}{Matricola n.}{Student number}}
+  \newcommand{\@trAnnoAccademico}{\ifthenelse{\equal{\@lang}{italian}}{ANNO ACCADMICO}{ACADEMIC YEAR}}
+
   \begin{titlepage}
     \begin{center}
       \large
@@ -66,7 +85,7 @@
       \vspace{0.5cm}
       \normalsize
       \@department \\
-      Classe \@class
+      \@trClass~\@class
 
       \vfill
 
@@ -80,28 +99,27 @@
     \vfill
 
     \begin{flushleft}
-      Relatore \\
+      \@trAdvisor \\
       \@advisor
     \end{flushleft}
 
-    \ifx\@coadvisor\undefined
-    \else
-    \begin{flushleft}
-      Correlatore \\
-      \@coadvisor
-    \end{flushleft}
-    \fi
+    \ifthenelse{\equal{\@coadvisor}{}}{}{
+      \begin{flushleft}
+        \@trCoAdvisor \\
+        \@coadvisor
+      \end{flushleft}
+    }
 
     \begin{flushright}
-      Tesi di Laurea \\
+      \ifthenelse{\equal{\@degtype}{master}}{\@trTesiLaureaMagistrale}{\@trTesiLaurea} \\
       \@author \\
-      Matricola n.~\@studentid
+      \@trStudentNumber~\@studentid
     \end{flushright}
 
     \vfill
 
     \begin{center}
-      ANNO ACCADEMICO \@year
+      \@trAnnoAccademico~\@year
     \end{center}
   \end{titlepage}
 }
