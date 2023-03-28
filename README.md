@@ -7,6 +7,31 @@ A simple LaTeX template with the official UniBG formatting rules.
 - *LaTeX*: check your OS installation method
 - [`latexmk`](https://miktex.org/packages/latexmk)
 
+## Quick example
+
+```latex
+\documentclass[a4paper,12pt,openright]{report}
+
+\usepackage[english]{babel}
+
+\title{A UniBG Thesis}
+\subtitle{A UniBG Subtitle}
+\advisor{Chiar.mo Prof.~John Smith}
+
+\department{Department of Engineering}
+\class{LM-32}
+
+\author{John Doe}
+\studentid{69420}
+\year{2021/2022}
+
+\begin{document}
+  \maketitle[english]{master}
+\end{document}
+```
+
+See `main.tex` for the full setup.
+
 ## How to
 
 - *Create a PDF?*
@@ -17,7 +42,15 @@ A simple LaTeX template with the official UniBG formatting rules.
 
   Run `make watch` inside this folder.
 
-- *Change to English/Italian?*
+- *Change language?*
 
-  You can change whatever you prefer inside `unibg.sty`.
-  Make sure to also change the language given to the `babel` package.
+  Set your language (*italian* or *english*) like this: `\maketitle[english]{master}`.
+  Italian is default.
+
+- *Change between bachelor and master?*
+
+  Use the first parameter to `\maketitle`, either `\maketitle{master}` or `\maketitle{italian}`.
+
+- *Setup a table of contents?*
+
+  Use `\toc`.
