@@ -19,6 +19,7 @@ A simple LaTeX template with the official UniBG formatting rules.
 \advisor{Chiar.mo Prof.~John Smith}
 
 \department{Department of Engineering}
+\course{Computer Science}
 \class{LM-32}
 
 \author{John Doe}
