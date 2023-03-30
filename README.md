@@ -75,7 +75,7 @@ See `main.tex` for the full setup.
 
 - *How to change language?*
 
-  Change your language in `\maketitle` and in the `\usepackage[language]{babel}` command.
+  Use `\thesislanguage{language}`. Remember to change your language in the `\usepackage[language]{babel}` command.
 
 - *How does the table of contents work?*
 
