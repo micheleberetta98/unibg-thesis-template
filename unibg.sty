@@ -10,8 +10,10 @@
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{import}
+\usepackage{listings}
 \usepackage{multicol}
 \usepackage{xifthen}
+\usepackage{xstring}
 
 % ----------------------- Bibliography
 \addbibresource{bibliography.bib}
@@ -35,16 +37,32 @@
 \setcounter{tocdepth}{4}
 
 % ----------------------- New commands
+\makeatletter
+\def\thesislanguage#1{\gdef\@lang{#1}}
+\gdef\@lang{italian}
+\ifthenelse{\equal{\@lang}{italian} \OR \equal{\@lang}{english}}{}{
+  \errmessage{Language must be either 'italian' or 'english'}
+}
+\makeatother
+
 \newcommand{\emptypage}{
   \clearpage
   \thispagestyle{empty}
   \pagenumbering{gobble}
   \mbox{}
 }
-\newcommand{\toc}{
+\newcommand{\toc}[1][]{
   \clearpage
   \pagenumbering{Roman}
   \tableofcontents
+  \IfSubStr{#1}{figures}{\listoffigures}{}
+  \IfSubStr{#1}{tables}{\listoftables}{}
+  \makeatletter
+    \ifthenelse{\equal{\@lang}{italian}}
+      {\renewcommand{\lstlistlistingname}{Elenco dei Codici}}
+      {\renewcommand{\lstlistlistingname}{List of Listings}}
+  \makeatother
+  \IfSubStr{#1}{listings}{\lstlistoflistings}{}
 }
 
 % ----------------------- Title page
@@ -63,15 +81,11 @@
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist
 
-\renewcommand{\maketitle}[2][italian]{
-  \newcommand{\@lang}{#1}
-  \newcommand{\@degtype}{#2}
+\renewcommand{\maketitle}[1]{
+  \newcommand{\@degtype}{#1}
   
   \ifthenelse{\equal{\@degtype}{bachelor} \OR \equal{\@degtype}{master}}{}{
     \errmessage{Argument must be either 'bachelor' or 'master'}
-  }
-  \ifthenelse{\equal{\@lang}{italian} \OR \equal{\@lang}{english}}{}{
-    \errmessage{Language must be either 'italian' or 'english'}
   }
   
   \newcommand{\@trDepartment}{\ifthenelse{\equal{\@lang}{italian}}{Dipartimento di}{Department of}}
