@@ -10,15 +10,11 @@ A simple LaTeX template with the official UniBG formatting rules.
 ## Quick example
 
 ```latex
-\documentclass[a4paper,12pt,twoside,openright]{report}
+\documentclass[english,master]{unibg}
 
-\usepackage[english]{babel}
-\usepackage{unibg}
-
-\thesislanguage{english}
 \title{A UniBG Thesis}
 \subtitle{A UniBG Subtitle}
-\advisor{Chiar.mo Prof.~John Smith}
+\advisor{Prof.~John Smith}
 
 \department{Department of Engineering}
 \course{Computer Science}
@@ -29,37 +25,40 @@ A simple LaTeX template with the official UniBG formatting rules.
 \year{2021/2022}
 
 \begin{document}
-  \maketitle{master}
+  \maketitle
 \end{document}
 ```
 
 See `main.tex` for the full setup.
 
-## Available commands
+## Usage
+
+Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can set:
+- *Lanuage*, either `italian` (default) or `english`
+- *Degree type*, either `master` (default) or `bachelor`
 
 ### Configuration
 
-| Option            | Required | Description                                                                              |
-| ----------------- | -------- | ---------------------------------------------------------------------------------------- |
-| `\title`          | ✔️        | The title of the thesis                                                                  |
-| `\subtitle`       |          | The subtitle of the thesis (or a "less important" part of the title)                     |
-| `\advisor`        | ✔️        | Your advisor (professor who followed you)                                                |
-| `\coadvisor`      |          | Your coadvisor (if you don't know about this, then you don't need it)                    |
-| `\department`     | ✔️        | The [department](https://www.unibg.it/ateneo/organizzazione/dipartimenti) of your course |
-| `\course`         | ✔️        | The official name of your course                                                         |
-| `\class`          | ✔️        | The degree's class (check your course webpage)                                           |
-| `\author`         | ✔️        | You (I hope)                                                                             |
-| `\studentid`      | ✔️        | Your student number                                                                      |
-| `\year`           | ✔️        | The academic year of your degree                                                         |
-| `\thesislanguage` |          | Your thesis language, either `italian` (default) or `english`                            |
+| Option        | Required | Description                                                                              |
+| ------------- | -------- | ---------------------------------------------------------------------------------------- |
+| `\title`      | ✔️        | The title of the thesis                                                                  |
+| `\subtitle`   |          | The subtitle of the thesis (or a "less important" part of the title)                     |
+| `\advisor`    | ✔️        | Your advisor (professor who followed you)                                                |
+| `\coadvisor`  |          | Your coadvisor (if you don't know about this, then you don't need it)                    |
+| `\department` | ✔️        | The [department](https://www.unibg.it/ateneo/organizzazione/dipartimenti) of your course |
+| `\course`     | ✔️        | The official name of your course                                                         |
+| `\class`      | ✔️        | The degree's class (check your course webpage)                                           |
+| `\author`     | ✔️        | You (I hope)                                                                             |
+| `\studentid`  | ✔️        | Your student number                                                                      |
+| `\year`       | ✔️        | The academic year of your degree                                                         |
 
 ### Commands
 
-| Command              | Description                                                                                                                      |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `\maketitle{degree}` | Creates the first page, degree is either `master` or `bachelor`                                                                  |
-| `\emptypage`         | Surprisingly, an empy page                                                                                                       |
-| `\toc[opts]`         | The table of contents, `opts` is a (possibly empty) comma-separated list of one or more among `figures`, `tables` and `listings` |
+| Command      | Description                | Options                                                                       |
+| ------------ | -------------------------- | ----------------------------------------------------------------------------- |
+| `\maketitle` | Creates the first page     | -                                                                             |
+| `\emptypage` | Surprisingly, an empy page | -                                                                             |
+| `\toc[opts]` | The table of contents      | Comma-separated list of zero or more among `figures`, `tables` and `listings` |
 
 ## Helpful questions
 
@@ -75,14 +74,14 @@ See `main.tex` for the full setup.
 
 - *How to change language?*
 
-  Use `\thesislanguage{language}`. Remember to change your language in the `\usepackage[language]{babel}` command.
+  Write your desired language in the options of `\documentclass{unibg}`.
 
 - *How does the table of contents work?*
 
   Just use `\toc`. Note that the table of contents kinda breaks the flow of opening chapters on a right page.
   So remember to check and add a `\emptypage` if necessary.
 
-- *How can I show other tables of contens, like figures?*
+- *How can I show other tables of contents, like figures?*
 
   Use the optional argument to `\toc`. If you want to show all supported table of contents,
   do `\toc[figures,tables,listings]`. You can also mix and match how you prefer.
