@@ -1,19 +1,44 @@
-\ProvidesPackage{unibg}
+\ProvidesClass{unibg}
 
-\usepackage[backend=biber]{biblatex}
-\usepackage[hidelinks]{hyperref}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{caption}
-\usepackage{csquotes}
-\usepackage{fancyhdr}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{import}
-\usepackage{listings}
-\usepackage{multicol}
-\usepackage{xifthen}
-\usepackage{xstring}
+\makeatletter
+
+\DeclareOption{italian}{
+  \gdef\@lang{italian}
+}
+\DeclareOption{english}{
+  \gdef\@lang{english}
+}
+
+\DeclareOption{master}{
+  \gdef\@degtype{master}
+}
+\DeclareOption{bachelor}{
+  \gdef\@degtype{bachelor}
+}
+
+\ExecuteOptions{italian,master}
+
+\ProcessOptions\relax
+
+\LoadClass[a4paper,12pt,twoside,openright]{report}
+
+\RequirePackage[backend=biber]{biblatex}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[\@lang]{babel}
+\RequirePackage{caption}
+\RequirePackage{csquotes}
+\RequirePackage{fancyhdr}
+\RequirePackage{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{import}
+\RequirePackage{listings}
+\RequirePackage{multicol}
+\RequirePackage{xifthen}
+\RequirePackage{xstring}
+
+\DeclareStringOption[italian]{lang}
 
 % ----------------------- Bibliography
 \addbibresource{bibliography.bib}
@@ -37,14 +62,6 @@
 \setcounter{tocdepth}{4}
 
 % ----------------------- New commands
-\makeatletter
-\def\thesislanguage#1{\gdef\@lang{#1}}
-\gdef\@lang{italian}
-\ifthenelse{\equal{\@lang}{italian} \OR \equal{\@lang}{english}}{}{
-  \errmessage{Language must be either 'italian' or 'english'}
-}
-\makeatother
-
 \newcommand{\emptypage}{
   \clearpage
   \thispagestyle{empty}
@@ -57,16 +74,13 @@
   \tableofcontents
   \IfSubStr{#1}{figures}{\listoffigures}{}
   \IfSubStr{#1}{tables}{\listoftables}{}
-  \makeatletter
     \ifthenelse{\equal{\@lang}{italian}}
       {\renewcommand{\lstlistlistingname}{Elenco dei Codici}}
       {\renewcommand{\lstlistlistingname}{List of Listings}}
-  \makeatother
   \IfSubStr{#1}{listings}{\lstlistoflistings}{}
 }
 
 % ----------------------- Title page
-\makeatletter
 \def\subtitle#1{\gdef\@subtitle{#1}}
 \def\department#1{\gdef\@department{#1}}
 \def\course#1{\gdef\@course{#1}}
@@ -81,13 +95,7 @@
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist
 
-\renewcommand{\maketitle}[1]{
-  \newcommand{\@degtype}{#1}
-  
-  \ifthenelse{\equal{\@degtype}{bachelor} \OR \equal{\@degtype}{master}}{}{
-    \errmessage{Argument must be either 'bachelor' or 'master'}
-  }
-  
+\renewcommand{\maketitle}{
   \newcommand{\@trDepartment}{\ifthenelse{\equal{\@lang}{italian}}{Dipartimento di}{Department of}}
   \newcommand{\@trCourseB}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea in}{Bachelor Degree in}}
   \newcommand{\@trCourseM}{\ifthenelse{\equal{\@lang}{italian}}{Corso di Laurea Magistrale in}{Master Degree in}}
@@ -196,4 +204,7 @@
       }
   \end{titlepage}
 }
+
 \makeatother
+
+\endinput
