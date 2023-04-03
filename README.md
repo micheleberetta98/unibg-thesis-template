@@ -12,8 +12,8 @@ A simple LaTeX template with the official UniBG formatting rules.
 ```latex
 \documentclass[english,master]{unibg}
 
-\title{A UniBG Thesis}
-\subtitle{A UniBG Subtitle}
+\title{A Seclab Thesis}
+\subtitle{A Seclab Subtitle}
 \advisor{Prof.~John Smith}
 
 \department{Department of Engineering}
