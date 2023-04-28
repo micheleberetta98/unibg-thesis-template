@@ -21,7 +21,7 @@ A simple LaTeX template with the official UniBG formatting rules.
 \class{LM-32}
 
 \author{John Doe}
-\studentid{69420}
+\studentid{177013}
 \year{2021/2022}
 
 \begin{document}
