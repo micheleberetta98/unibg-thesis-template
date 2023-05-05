@@ -2,6 +2,11 @@
 
 A simple LaTeX template with the official UniBG formatting rules.
 
+**Note**: this template is completely free, you can use it however you want.
+However, you have to have a little sentence in your acknowledgements thanking
+either the Seclab if your thesis is with them (or me if not) for providing
+this template.
+
 ## Requirements
 
 - *LaTeX* (full): check your OS installation method
