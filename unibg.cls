@@ -56,7 +56,6 @@
 \pagestyle{plain}
 
 % ----------------------- Geometry and measures
-\setlength{\parskip}{2pt}
 \geometry{margin=3cm}
 \renewcommand{\baselinestretch}{1.5}
 \setcounter{tocdepth}{4}
