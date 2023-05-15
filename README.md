@@ -1,6 +1,6 @@
 # UniBG LaTeX Thesis Template
 
-A simple LaTeX template with the official UniBG formatting rules.
+A simple LaTeX template with the official [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
 **Note**: this template is completely free, you can use it however you want.
 However, you have to have a little sentence in your acknowledgements thanking
