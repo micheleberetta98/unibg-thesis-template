@@ -11,9 +11,9 @@ this template.
 
 The only real requirement if you want to use this offline is *LaTeX* (suggested TeX Live).
 Check your OS installation method. For reference, this set of packages
-could be considered a minimal working install (taken from the Arch Linux wiki):
+works (taken from the Arch Linux wiki):
 
-- [`texlive-most`](https://archlinux.org/groups/x86_64/texlive-most/)
+- [`texlive`](https://archlinux.org/groups/x86_64/texlive/)
 - [`biber`](https://archlinux.org/packages/community/any/biber/)
 
 You can check for your OS what are the equivalent ones, or just use the full
