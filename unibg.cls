@@ -27,6 +27,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[\@lang]{babel}
+\RequirePackage{amsmath}
 \RequirePackage{caption}
 \RequirePackage{csquotes}
 \RequirePackage{fancyhdr}
