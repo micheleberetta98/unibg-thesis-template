@@ -17,8 +17,19 @@ An example sentence you can use is the following:
 
 ## Requirements
 
-- *LaTeX* (full): check your OS installation method
-- [`latexmk`](https://miktex.org/packages/latexmk)
+The only real requirement if you want to use this offline is *LaTeX* (suggested TeX Live).
+Check your OS installation method. For reference, this set of packages
+works (taken from the Arch Linux wiki):
+
+- [`texlive`](https://archlinux.org/groups/x86_64/texlive/)
+- [`biber`](https://archlinux.org/packages/community/any/biber/)
+
+You can check for your OS what are the equivalent ones, or just use the full
+installation.
+
+As an extra, you can install [*latexmk*](https://miktex.org/packages/latexmk)
+to make use of the `make` and `make watch` commands. Could come already installed
+with some packages.
 
 ## Quick example
 
@@ -84,6 +95,11 @@ Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can
   Run `make watch` inside this folder.
   Note that you have to configure `latexmk` in order to [support live updates](https://mg.readthedocs.io/latexmk.html#configuration-files).
   Also, this is known to not work with all viewers, especially not *Adobe Reader*.
+
+- *I don't have make*/*I use Windows*
+
+  Sorry about that. The files should be working without problems with any
+  other editor (Overleaf, TeXstudio, etc). You may have to copy files around.
 
 - *How to change language?*
 
