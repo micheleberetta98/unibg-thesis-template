@@ -31,7 +31,25 @@ As an extra, you can install [*latexmk*](https://miktex.org/packages/latexmk)
 to make use of the `make` and `make watch` commands. Could come already installed
 with some packages.
 
-## Quick example
+## Step-by-step setup
+
+1. Make sure the requirements are installed
+2. Setup your repository with the LaTeX code
+   - Either use the "Use this template" button in GitHub
+   - Or fork (or make your own copy) of the repo
+3. Start writing in LaTeX, the structure is already setup for you
+4. Use `make` to create the PDF
+
+You can also copy the file to Overleaf or any other LaTeX editing software you
+like.
+
+## Usage and options
+
+Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can set:
+- *Lanuage*, either `italian` or `english`
+- *Degree type*, either `master` or `bachelor`
+
+### Quick example
 
 ```latex
 \documentclass[english,master]{unibg}
@@ -55,13 +73,7 @@ with some packages.
 
 See `main.tex` for the full setup.
 
-## Usage
-
-Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can set:
-- *Lanuage*, either `italian` (default) or `english`
-- *Degree type*, either `master` (default) or `bachelor`
-
-### Configuration
+### Title page options
 
 | Option        | Required | Description                                                                              |
 | ------------- | -------- | ---------------------------------------------------------------------------------------- |
@@ -84,7 +96,7 @@ Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can
 | `\emptypage` | Surprisingly, an empy page | -                                                                             |
 | `\toc[opts]` | The table of contents      | Comma-separated list of zero or more among `figures`, `tables` and `listings` |
 
-## Helpful questions
+## FAQ
 
 - *How to create a PDF?*
 
