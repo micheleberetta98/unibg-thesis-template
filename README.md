@@ -40,7 +40,7 @@ with some packages.
 3. Start writing in LaTeX, the structure is already setup for you
 4. Use `make` to create the PDF
 
-You can also copy the file to Overleaf or any other LaTeX editing software you
+You can also copy the files to Overleaf or any other LaTeX editing software you
 like.
 
 ## Usage and options
