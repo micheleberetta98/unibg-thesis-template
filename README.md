@@ -10,10 +10,13 @@ acknowledgements:
 - To the *UniBG Seclab* if you're doing your thesis with them
 - Or to me, *Michele Beretta*, in every other case
 
+Remember to also include a link to this repository for reference.
 An example sentence you can use is the following:
 
-> I would like to thank *[INSERT NAME]* for providing the LaTeX template used
+> I would like to thank *[INSERT NAME]* for providing the LaTeX template [1] used
 > during the writing of this thesis.
+>
+> [1] *Link to this repo*
 
 ## Requirements
 
