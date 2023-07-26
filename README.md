@@ -116,6 +116,11 @@ See `main.tex` for the full setup.
   Sorry about that. The files should be working without problems with any
   other editor (Overleaf, TeXstudio, etc). You may have to copy files around.
 
+- *I have problems with the bibliography*
+
+  If the bibliography doesn't show up, try changing `backend=biber` into
+  `backend=bibtex` in `unibg.cls` (should be around line 26).
+
 - *How to change language?*
 
   Write your desired language in the options of `\documentclass{unibg}`.
