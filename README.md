@@ -99,7 +99,7 @@ See `main.tex` for the full setup.
 | `\emptypage` | Surprisingly, an empy page | -                                                                             |
 | `\toc[opts]` | The table of contents      | Comma-separated list of zero or more among `figures`, `tables` and `listings` |
 
-## FAQ
+## FAQs
 
 - *How to create a PDF?*
 
@@ -114,12 +114,14 @@ See `main.tex` for the full setup.
 - *I don't have make*/*I use Windows*
 
   Sorry about that. The files should be working without problems with any
-  other editor (Overleaf, TeXstudio, etc). You may have to copy files around.
+  other editor (suggested Overleaf). You may have to copy files around. Note that
+  there is a known problem with TeXstudio (see next FAQ).
 
-- *I have problems with the bibliography*
+- *The bibliography doesn't show up in TeXstudio*
 
   If the bibliography doesn't show up, try changing `backend=biber` into
-  `backend=bibtex` in `unibg.cls` (should be around line 26).
+  `backend=bibtex` in `unibg.cls` (should be around line 26) and then look at
+  [this StackExchange answer](https://tex.stackexchange.com/questions/135102/biblatex-doesnt-show-bibliography-when-compiling).
 
 - *How to change language?*
 
