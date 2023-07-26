@@ -20,19 +20,16 @@ An example sentence you can use is the following:
 
 ## Requirements
 
-The only real requirement if you want to use this offline is *LaTeX* (suggested TeX Live).
-Check your OS installation method. For reference, this set of packages
-works (taken from the Arch Linux wiki):
+If you want to use this offline you need:
 
-- [`texlive`](https://archlinux.org/groups/x86_64/texlive/)
-- [`biber`](https://archlinux.org/packages/community/any/biber/)
+- *LaTeX* (required): this project is tested with TeX Live 2023/Arch Linux, the reference
+  packages are [`texlive`](https://archlinux.org/groups/x86_64/texlive/) and
+  [`biber`](https://archlinux.org/packages/community/any/biber/)
+- [*latexmk*](https://miktex.org/packages/latexmk): not required, but recommended
 
-You can check for your OS what are the equivalent ones, or just use the full
-installation.
+`latexmk` could be installed alongside TeX Live if you go for the full version.
 
-As an extra, you can install [*latexmk*](https://miktex.org/packages/latexmk)
-to make use of the `make` and `make watch` commands. Could come already installed
-with some packages.
+Other LaTeX flavours should work, but it's not guaranteed.
 
 ## Step-by-step setup
 
@@ -44,7 +41,7 @@ with some packages.
 4. Use `make` to create the PDF
 
 You can also copy the files to Overleaf or any other LaTeX editing software you
-like.
+like. Note however that there could be some problems with some editors (see FAQs).
 
 ## Usage and options
 
