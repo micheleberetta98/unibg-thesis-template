@@ -64,7 +64,7 @@ Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can
 
 \author{John Doe}
 \studentid{177013}
-\year{2021/2022}
+\academicyear{2021/2022}
 
 \begin{document}
   \maketitle
@@ -75,18 +75,18 @@ See `main.tex` for the full setup.
 
 ### Title page options
 
-| Option        | Required | Description                                                                              |
-| ------------- | -------- | ---------------------------------------------------------------------------------------- |
-| `\title`      | ✔️        | The title of the thesis                                                                  |
-| `\subtitle`   |          | The subtitle of the thesis (or a "less important" part of the title)                     |
-| `\advisor`    | ✔️        | Your advisor (professor who followed you)                                                |
-| `\coadvisor`  |          | Your coadvisor (if you don't know about this, then you don't need it)                    |
-| `\department` | ✔️        | The [department](https://www.unibg.it/ateneo/organizzazione/dipartimenti) of your course |
-| `\course`     | ✔️        | The official name of your course                                                         |
-| `\class`      | ✔️        | The degree's class (check your course webpage)                                           |
-| `\author`     | ✔️        | You (I hope)                                                                             |
-| `\studentid`  | ✔️        | Your student number                                                                      |
-| `\year`       | ✔️        | The academic year of your degree                                                         |
+| Option          | Required | Description                                                                              |
+| --------------- | -------- | ---------------------------------------------------------------------------------------- |
+| `\title`        | ✔️        | The title of the thesis                                                                  |
+| `\subtitle`     |          | The subtitle of the thesis (or a "less important" part of the title)                     |
+| `\advisor`      | ✔️        | Your advisor (professor who followed you)                                                |
+| `\coadvisor`    |          | Your coadvisor (if you don't know about this, then you don't need it)                    |
+| `\department`   | ✔️        | The [department](https://www.unibg.it/ateneo/organizzazione/dipartimenti) of your course |
+| `\course`       | ✔️        | The official name of your course                                                         |
+| `\class`        | ✔️        | The degree's class (check your course webpage)                                           |
+| `\author`       | ✔️        | You (I hope)                                                                             |
+| `\studentid`    | ✔️        | Your student number                                                                      |
+| `\academicyear` | ✔️        | The academic year of your degree                                                         |
 
 ### Commands
 
