@@ -25,7 +25,7 @@ If you want to use this offline you need:
 - *LaTeX* (required): this project is tested with TeX Live 2023/Arch Linux, the reference
   packages are [`texlive`](https://archlinux.org/groups/x86_64/texlive/) and
   [`biber`](https://archlinux.org/packages/community/any/biber/)
-- [*latexmk*](https://miktex.org/packages/latexmk): not required, but recommended
+- [*latexmk*](https://mg.readthedocs.io/latexmk.html): not required, but recommended
 
 `latexmk` could be installed alongside TeX Live if you go for the full version.
 
