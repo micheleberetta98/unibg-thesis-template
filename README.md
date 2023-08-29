@@ -1,6 +1,7 @@
 # UniBG LaTeX Thesis Template
 
-A simple LaTeX template with the official [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
+A simple (unofficial) LaTeX template following the official
+[UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
 ## Important note
 
