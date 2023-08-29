@@ -2,19 +2,14 @@
 
 \makeatletter
 
-\DeclareOption{italian}{
-  \gdef\@lang{italian}
-}
-\DeclareOption{english}{
-  \gdef\@lang{english}
-}
+\newcommand{\@lang}{}
+\newcommand{\@degtype}{}
 
-\DeclareOption{master}{
-  \gdef\@degtype{master}
-}
-\DeclareOption{bachelor}{
-  \gdef\@degtype{bachelor}
-}
+\DeclareOption{italian}{\renewcommand{\@lang}{italian}}
+\DeclareOption{english}{\renewcommand{\@lang}{english}}
+
+\DeclareOption{master}{\renewcommand{\@degtype}{master}}
+\DeclareOption{bachelor}{\renewcommand{\@degtype}{bachelor}}
 
 \ExecuteOptions{italian,master}
 
@@ -81,19 +76,23 @@
 }
 
 % ----------------------- Title page
-\def\subtitle#1{\gdef\@subtitle{#1}}
-\def\department#1{\gdef\@department{#1}}
-\def\course#1{\gdef\@course{#1}}
-\def\class#1{\gdef\@class{#1}}
-\def\advisor#1{\gdef\@advisor{#1}}
-\def\coadvisor#1{\gdef\@coadvisor{#1}}
-\def\studentid#1{\gdef\@studentid{#1}}
-\def\academicyear#1{\gdef\@academicyear{#1}}
-\def\@coadvisor{}
-\def\@subtitle{}
+\newcommand{\@subtitle}{}
+\newcommand{\@coadvisor}{}
 
-\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-\let\endchangemargin=\endlist
+\newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
+\newcommand{\department}[1]{\newcommand{\@department}{#1}}
+\newcommand{\course}[1]{\newcommand{\@course}{#1}}
+\newcommand{\class}[1]{\newcommand{\@class}{#1}}
+\newcommand{\advisor}[1]{\newcommand{\@advisor}{#1}}
+\newcommand{\coadvisor}[1]{\renewcommand{\@coadvisor}{#1}}
+\newcommand{\studentid}[1]{\newcommand{\@studentid}{#1}}
+\newcommand{\academicyear}[1]{\newcommand{\@academicyear}{#1}}
+
+\newenvironment{changemargin}[2]{
+  \list{}{\rightmargin#2\leftmargin#1}\item[]
+}{
+  \endlist
+}
 
 \renewcommand{\maketitle}{
   \newcommand{\@trDepartment}{\ifthenelse{\equal{\@lang}{italian}}{Dipartimento di}{Department of}}

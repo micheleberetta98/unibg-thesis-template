@@ -10,4 +10,4 @@ watch:
 	@ $(COMPILE) -pvc
  
 clean:
-	@ rm -rf ./dist/
+	@ $(COMPILE) -c
