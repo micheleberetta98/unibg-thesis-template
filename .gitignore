@@ -1,4 +1,16 @@
 dist/*
+*.aux
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.run.xml
+*.synctex.gz
+*.toc
 
 # Uncomment this if you want to keep the pdf
 # !dist/*.pdf
+# !main.pdf
