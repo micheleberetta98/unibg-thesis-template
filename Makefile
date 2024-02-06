@@ -1,7 +1,6 @@
 FILE = main
-OUTDIR = dist
 
-COMPILE = latexmk -pdf -outdir=$(OUTDIR) $(FILE)
+COMPILE = latexmk -pdf $(FILE)
 
 build:
 	@ $(COMPILE)
