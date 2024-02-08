@@ -3,7 +3,7 @@
 A simple (unofficial) LaTeX template following the official
 [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
-## Important note
+## :warning: Important note
 
 This template is completely free of use.
 However, as highlighted in the MIT license, you have to give credit in your thesis
@@ -18,6 +18,8 @@ An example sentence you can use is the following:
 > during the writing of this thesis.
 >
 > [1] *Link to this repo*
+
+You can use the "Cite this repository" button on the right.
 
 ## Requirements
 

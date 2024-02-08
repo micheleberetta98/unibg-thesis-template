@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this template, please cite it as below."
+authors:
+  - family-names: "Beretta"
+    given-names: "Michele"
+    orcid: "https://orcid.org/0009-0003-4026-8589"
+title: "UniBG LaTeX Thesis Template"
+url: "https://github.com/micheleberetta98/unibg-thesis-template"
