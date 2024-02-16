@@ -142,9 +142,11 @@
         }
     
         \begin{flushright}
-          {\@trTesiLaureaM} \\
-          \@author \\
-          \@trStudentNumber~\@studentid
+          \begin{tabular}{@{}l@{}}
+            {\@trTesiLaureaM} \\
+            \@author \\
+            \@trStudentNumber~\@studentid
+          \end{tabular}
         \end{flushright}
     
         \vfill
