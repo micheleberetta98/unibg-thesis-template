@@ -111,11 +111,20 @@ See `main.tex` for the full setup.
   Note that you have to configure `latexmk` in order to [support live updates](https://mg.readthedocs.io/latexmk.html#configuration-files).
   Also, this is known to not work with all viewers, especially not *Adobe Reader*.
 
-- *I don't have make*/*I use Windows*
+- *I don't have make*
 
-  Sorry about that. The files should be working without problems with any
-  other editor (suggested Overleaf). You may have to copy files around. Note that
-  there is a known problem with TeXstudio (see next FAQ).
+  Files can be compiled however you prefer (even when copied in Overleaf). Note
+  that there can be some tricky cases, such as with TeXstudio (see further FAQ).
+
+- *I use Windows*
+
+  Don't. If you can't fire up a VM or dual boot a distro, use Overleaf.
+  It'll save you some headaches.
+
+- *I use macOS*
+
+  As long as you have everything installed, should work out of the box.
+  You should even have `make` already installed.
 
 - *The bibliography doesn't show up in TeXstudio*
 
