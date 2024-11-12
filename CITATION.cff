@@ -4,5 +4,5 @@ authors:
   - family-names: "Beretta"
     given-names: "Michele"
     orcid: "https://orcid.org/0009-0003-4026-8589"
-title: "UniBG LaTeX Thesis Template"
+title: "UniBG Typst Thesis Template"
 url: "https://github.com/micheleberetta98/unibg-thesis-template"
