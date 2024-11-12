@@ -3,6 +3,8 @@
 A simple (unofficial) LaTeX template following the official
 [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
+*Also, checkout the Typst branch!*
+
 ## :warning: Important note
 
 This template is completely free of use.
