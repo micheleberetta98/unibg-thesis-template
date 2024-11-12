@@ -1,6 +1,6 @@
-# UniBG LaTeX Thesis Template
+# UniBG Typst Thesis Template
 
-A simple (unofficial) LaTeX template following the official
+A simple (unofficial) Typst template following the official
 [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
 ## :warning: Important note
@@ -14,7 +14,7 @@ acknowledgements:
 Remember to also include a link to this repository for reference.
 An example sentence you can use is the following:
 
-> I would like to thank *[INSERT NAME]* for providing the LaTeX template [1] used
+> I would like to thank *[INSERT NAME]* for providing the Typst template [1] used
 > during the writing of this thesis.
 >
 > [1] *Link to this repo*
@@ -25,124 +25,50 @@ You can use the "Cite this repository" button on the right.
 
 If you want to use this offline you need:
 
-- *LaTeX* (required): this project is tested with TeX Live 2023/Arch Linux, the reference
-  packages are [`texlive`](https://archlinux.org/groups/x86_64/texlive/) and
-  [`biber`](https://archlinux.org/packages/community/any/biber/)
-- [*latexmk*](https://mg.readthedocs.io/latexmk.html): not required, but recommended
-
-`latexmk` could be installed alongside TeX Live if you go for the full version.
-
-Other LaTeX flavours should work, but it's not guaranteed.
+- *Typst* (required)
 
 ## Step-by-step setup
 
 1. Make sure the requirements are installed
-2. Setup your repository with the LaTeX code
+2. Setup your repository with the Typst code
    - Either use the "Use this template" button in GitHub
    - Or fork (or make your own copy) of the repo
-3. Start writing in LaTeX, the structure is already setup for you
-4. Use `make` to create the PDF
-
-You can also copy the files to Overleaf or any other LaTeX editing software you
-like. Note however that there could be some problems with some editors (see FAQs).
+3. Start writing in Typst, the structure is already setup for you
+4. Use `typst compile` and `typst watch`
 
 ## Usage and options
 
-Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can set:
-- *Lanuage*, either `italian` or `english`
-- *Degree type*, either `master` or `bachelor`
+This is all that you need.
 
-### Quick example
+```typst
+#import "unibg.typ": *
 
-```latex
-\documentclass[english,master]{unibg}
+#set text(lang: "en")
 
-\title{A Seclab Thesis}
-\subtitle{A Seclab Subtitle}
-\advisor{Prof.~John Smith}
+#show: unibg.with(
+  title: "A Seclab Thesis",
+  subtitle: "A Seclab Subtitle",
+  author: (
+    name: "John Doe",
+    number: 177013,
+  ),
+  degree: (
+    name: "Ingegneria Informatica",
+    department: "Ingegneria Gestionale, dell'Informazione e della Produzione",
+    class: "LM-32",
+    master: true,
+    year: "2021/2022",
+  ),
+  advisor: "Chiar.mo Prof. John Smith",
+  // coadvisor: "Chiar.mo Prof. Ed Smith",
+  abstract: lorem(150),
+  show-outline: (
+    figures: true,
+    tables: true,
+  )
+)
 
-\department{Department of Engineering}
-\course{Computer Science}
-\class{LM-32}
+= First chapter
 
-\author{John Doe}
-\studentid{177013}
-\academicyear{2021/2022}
-
-\begin{document}
-  \maketitle
-\end{document}
+#bibliography("bibliography.bib", full: true)
 ```
-
-See `main.tex` for the full setup.
-
-### Title page options
-
-| Option          | Required | Description                                                                              |
-| --------------- | -------- | ---------------------------------------------------------------------------------------- |
-| `\title`        | ✔️        | The title of the thesis                                                                  |
-| `\subtitle`     |          | The subtitle of the thesis (or a "less important" part of the title)                     |
-| `\advisor`      | ✔️        | Your advisor (professor who followed you)                                                |
-| `\coadvisor`    |          | Your coadvisor (if you don't know about this, then you don't need it)                    |
-| `\department`   | ✔️        | The [department](https://www.unibg.it/ateneo/organizzazione/dipartimenti) of your course |
-| `\course`       | ✔️        | The official name of your course                                                         |
-| `\class`        | ✔️        | The degree's class (check your course webpage)                                           |
-| `\author`       | ✔️        | You (I hope)                                                                             |
-| `\studentid`    | ✔️        | Your student number                                                                      |
-| `\academicyear` | ✔️        | The academic year of your degree                                                         |
-
-### Commands
-
-| Command      | Description                | Options                                                                       |
-| ------------ | -------------------------- | ----------------------------------------------------------------------------- |
-| `\maketitle` | Creates the first page     | -                                                                             |
-| `\emptypage` | Surprisingly, an empy page | -                                                                             |
-| `\toc[opts]` | The table of contents      | Comma-separated list of zero or more among `figures`, `tables` and `listings` |
-
-## FAQs
-
-- *How to create a PDF?*
-
-  Run `make` inside this folder.
-
-- *How to have a live preview?*
-
-  Run `make watch` inside this folder.
-  Note that you have to configure `latexmk` in order to [support live updates](https://mg.readthedocs.io/latexmk.html#configuration-files).
-  Also, this is known to not work with all viewers, especially not *Adobe Reader*.
-
-- *I don't have make*
-
-  Files can be compiled however you prefer (even when copied in Overleaf). Note
-  that there can be some tricky cases, such as with TeXstudio (see further FAQ).
-
-- *I use Windows*
-
-  Don't. If you can't fire up a VM or dual boot a distro, use Overleaf.
-  It'll save you some headaches.
-
-- *I use macOS*
-
-  As long as you have everything installed, should work out of the box.
-  You should even have `make` already installed.
-
-- *The bibliography doesn't show up in TeXstudio*
-
-  If the bibliography doesn't show up, try changing `backend=biber` into
-  `backend=bibtex` in `unibg.cls` (should be around line 26) and then look at
-  [this StackExchange answer](https://tex.stackexchange.com/questions/135102/biblatex-doesnt-show-bibliography-when-compiling).
-
-- *How to change language?*
-
-  Write your desired language in the options of `\documentclass{unibg}`.
-
-- *How does the table of contents work?*
-
-  Just use `\toc`. Note that the table of contents kinda breaks the flow of opening chapters on a right page.
-  So remember to check and add a `\emptypage` if necessary.
-
-- *How can I show other tables of contents, like figures?*
-
-  Use the optional argument to `\toc`. If you want to show all supported table of contents,
-  do `\toc[figures,tables,listings]`. You can also mix and match how you prefer.
-  The chapter/section/subsection table of contents will always be printed though.
