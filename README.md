@@ -3,6 +3,8 @@
 A simple (unofficial) Typst template following the official
 [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
+*Also, checkout the LaTeX branch!*
+
 ## :warning: Important note
 
 This template is completely free of use.
@@ -23,22 +25,22 @@ You can use the "Cite this repository" button on the right.
 
 ## Requirements
 
-If you want to use this offline you need:
+- *Typst* [required] unsurprisingly
 
-- *Typst* (required)
+## Setup
 
-## Step-by-step setup
+1. Install Typst
+2. Setup your work environment as you see fit. For example, you can either:
+   - Use the "Use this template" button in GitHub and clone the new repo
+   - Fork this repo
+   - Just download the files
+3. Start writing in Typst
+4. Use `typst compile` to build the PDF manually, or `typst watch` to have a live
+   preview
 
-1. Make sure the requirements are installed
-2. Setup your repository with the Typst code
-   - Either use the "Use this template" button in GitHub
-   - Or fork (or make your own copy) of the repo
-3. Start writing in Typst, the structure is already setup for you
-4. Use `typst compile` and `typst watch`
+## Quick start
 
-## Usage and options
-
-This is all that you need.
+This is all you need, it should be self explanatory.
 
 ```typst
 #import "unibg.typ": *
