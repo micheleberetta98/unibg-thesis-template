@@ -18,7 +18,7 @@
 \LoadClass[a4paper,12pt,twoside,openright]{report}
 
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[backend=biber]{biblatex}
+\RequirePackage{biblatex}
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[\@lang]{babel}
