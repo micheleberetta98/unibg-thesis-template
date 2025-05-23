@@ -25,36 +25,23 @@ You can use the "Cite this repository" button on the right.
 
 ## Requirements
 
-If you want to use this offline you need:
+- *LaTeX* [required] unsurprisingly
+- [*latexmk*](https://mg.readthedocs.io/latexmk.html) [optional] if you want
+  live preview with `make watch`
 
-- *LaTeX* (required): this project is tested with TeX Live 2023/Arch Linux, the reference
-  packages are [`texlive`](https://archlinux.org/groups/x86_64/texlive/) and
-  [`biber`](https://archlinux.org/packages/community/any/biber/)
-- [*latexmk*](https://mg.readthedocs.io/latexmk.html): not required, but recommended
+The project has been tested with TeX Live.
 
-`latexmk` could be installed alongside TeX Live if you go for the full version.
+## Setup
 
-Other LaTeX flavours should work, but it's not guaranteed.
+1. Install LaTeX
+2. Setup your work environment as you see fit. For example, you can either:
+   - Use the "Use this template" button in GitHub and clone the new repo
+   - Fork this repo
+   - Download the files and upload them to Overleaf
+3. Start writing in LaTeX
+4. Use `make` to build the PDF manually
 
-## Step-by-step setup
-
-1. Make sure the requirements are installed
-2. Setup your repository with the LaTeX code
-   - Either use the "Use this template" button in GitHub
-   - Or fork (or make your own copy) of the repo
-3. Start writing in LaTeX, the structure is already setup for you
-4. Use `make` to create the PDF
-
-You can also copy the files to Overleaf or any other LaTeX editing software you
-like. Note however that there could be some problems with some editors (see FAQs).
-
-## Usage and options
-
-Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can set:
-- *Lanuage*, either `italian` or `english`
-- *Degree type*, either `master` or `bachelor`
-
-### Quick example
+## Quick start
 
 ```latex
 \documentclass[english,master]{unibg}
@@ -77,6 +64,12 @@ Main usage is done through `\documentclass[language,degreetype]{unibg}`. You can
 ```
 
 See `main.tex` for the full setup.
+
+## Options
+
+You can choose between:
+- *bachelor* or *master*, depending on your degree
+- *italian* or *english* as the language
 
 ### Title page options
 
@@ -103,14 +96,9 @@ See `main.tex` for the full setup.
 
 ## FAQs
 
-- *How to create a PDF?*
+- *Live preview doesn't work*
 
-  Run `make` inside this folder.
-
-- *How to have a live preview?*
-
-  Run `make watch` inside this folder.
-  Note that you have to configure `latexmk` in order to [support live updates](https://mg.readthedocs.io/latexmk.html#configuration-files).
+  If you use `latexmk`, you have to configure it in order to [support live updates](https://mg.readthedocs.io/latexmk.html#configuration-files).
   Also, this is known to not work with all viewers, especially not *Adobe Reader*.
 
 - *I don't have make*
@@ -120,28 +108,23 @@ See `main.tex` for the full setup.
 
 - *I use Windows*
 
-  Don't. If you can't fire up a VM or dual boot a distro, use Overleaf.
-  It'll save you some headaches.
+  Don't. Just don't. Save yourself massive headaches and just use a serious
+  operating system. If you can't fire up a VM or dual boot a distro, use
+  Overleaf.
 
 - *I use macOS*
 
   As long as you have everything installed, should work out of the box.
   You should even have `make` already installed.
 
-- *The bibliography doesn't show up in TeXstudio*
+- *I use Linux*
 
-  If the bibliography doesn't show up, try changing `backend=biber` into
-  `backend=bibtex` in `unibg.cls` (should be around line 26) and then look at
-  [this StackExchange answer](https://tex.stackexchange.com/questions/135102/biblatex-doesnt-show-bibliography-when-compiling).
-
-- *How to change language?*
-
-  Write your desired language in the options of `\documentclass{unibg}`.
+  You probably know already what to do tbh.
 
 - *How does the table of contents work?*
 
   Just use `\toc`. Note that the table of contents kinda breaks the flow of opening chapters on a right page.
-  So remember to check and add a `\emptypage` if necessary.
+  So **remember to check and add a `\emptypage` if necessary**.
 
 - *How can I show other tables of contents, like figures?*
 
