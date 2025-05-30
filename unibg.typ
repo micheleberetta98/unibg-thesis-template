@@ -145,17 +145,6 @@
   ]
 ]
 
-// #let abstract(doc) = align(horizon, {
-//   align(center + horizon, strong(context {
-//     if text.lang == "it" { "Sommario" }
-//     else { "Abstract" }
-//   }))
-
-//   v(0.5cm)
-
-//   doc
-// })
-
 #let unibg(
   title: none,
   subtitle: none,
@@ -216,7 +205,8 @@
   show heading.where(level: 2): set block(above: 2em, below: 1.5em)
   show heading.where(level: 2): it => block[#counter(heading).display(it.numbering)#h(0.65cm)#it.body]
 
-  set outline(indent: auto, fill: repeat[~.])
+  set outline(indent: auto)
+  set outline.entry(fill: repeat[~.])
   show outline.entry.where(level: 1): it => [#show repeat: none; #it]
   show outline.entry.where(level: 1): strong
 
