@@ -13,7 +13,7 @@
     name: "Ingegneria Informatica",
     department: "Ingegneria Gestionale, dell'Informazione e della Produzione",
     class: "LM-32",
-    master: true,
+    type: "master",
     year: "2021/2022",
   ),
   advisor: "Chiar.mo Prof. John Smith",

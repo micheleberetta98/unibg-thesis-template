@@ -91,6 +91,7 @@
   coadvisor,
   author,
 ) = page[
+  #set par(first-line-indent: 0pt)
   #image("images/unibg-logo-wide.png", width: 8.79cm)
   #v(0.5cm)
   #block(inset: (left: 4cm))[
@@ -152,7 +153,7 @@
   degree: (
     name: none,
     department: none,
-    master: false,
+    type: none,
     class: none,
     year: none,
   ),
@@ -212,9 +213,10 @@
 
   // ------ Actual document starts here
 
-  if degree.at("master", default: false) {
+  let deg = degree.at("type", default: "master")
+  if deg == "master" {
     master-front-page(title, subtitle, degree, advisor, coadvisor, author)
-  } else {
+  } else if deg == "bachelor" {
     bachelor-front-page(title, subtitle, degree, advisor, coadvisor, author)
   }
 
