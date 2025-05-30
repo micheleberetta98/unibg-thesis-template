@@ -1,0 +1,47 @@
+\makeatletter
+\begin{center}
+  \large
+  UNIVERSITÀ DEGLI STUDI DI BERGAMO \\
+  \vspace{0.5cm}
+  \normalsize
+  \@trDepartment~\@department \\
+  \@trCourseM~\@course \\
+  \@trClass~\@class
+
+  \vfill
+
+  \Huge
+  \textbf{\@title}
+
+  \LARGE
+  \@subtitle
+\end{center}
+
+\vfill
+
+\begin{flushleft}
+  \@trAdvisor \\
+  \@advisor
+\end{flushleft}
+
+\ifthenelse{\equal{\@coadvisor}{}}{}{
+  \begin{flushleft}
+    \@trCoAdvisor \\
+    \@coadvisor
+  \end{flushleft}
+}
+
+\begin{flushright}
+  \begin{tabular}{@{}l@{}}
+    {\@trTesiLaureaM} \\
+    \@author \\
+    \@trStudentNumber~\@studentid
+  \end{tabular}
+\end{flushright}
+
+\vfill
+
+\begin{center}
+  \@trAnnoAccademico~\@academicyear
+\end{center}
+\makeatother
