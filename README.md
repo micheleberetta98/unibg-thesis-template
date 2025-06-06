@@ -103,8 +103,8 @@ You can choose between:
 
 - *I don't have make*
 
-  Files can be compiled however you prefer (even when copied in Overleaf). Note
-  that there can be some tricky cases, such as with TeXstudio (see further FAQ).
+  Files can be compiled however you prefer (even when copied in Overleaf).
+  You can also use other IDEs, such as TeX Studio.
 
 - *I use Windows*
 
