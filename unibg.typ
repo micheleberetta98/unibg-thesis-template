@@ -10,21 +10,23 @@
 #let Huge         = 24.88pt
 
 #let translations = (
-  abstract:       (it: "Sommario",                      en: "Abstract"),
-  figures:        (it: "Figure",                        en: "Figures"),
-  tables:         (it: "Tabelle",                       en: "Tables"),
-  listings:       (it: "Codici",                        en: "Listings"),
-  department-of:  (it: "Dipartimento di",               en: "Department of"),
-  bachelor-in:    (it: "Corso di Laurea in",            en: "Bachelor Degree in"),
-  master-in:      (it: "Corso di Laurea Magistrale in", en: "Master Degree in"),
-  class:          (it: "Classe",                        en: "Class"),
-  advisor:        (it: "Relatore",                      en: "Advisor"),
-  coadvisor:      (it: "Correlatore",                   en: "Co-advisor"),
-  thesis:         (it: "Tesi di Laurea",                en: "Thesis"),
-  master-thesis:  (it: "Tesi di Laurea Magistrale",     en: "Master thesis"),
-  student-number: (it: "Matricola n.",                  en: "Student number"),
-  academic-year:  (it: "Anno Accademico",               en: "Academic Year"),
-  candidate:      (it: "Candidato",                     en: "Candidate"),
+  abstract:        (it: "Sommario",                      en: "Abstract"),
+  figures:         (it: "Figure",                        en: "Figures"),
+  tables:          (it: "Tabelle",                       en: "Tables"),
+  listings:        (it: "Codici",                        en: "Listings"),
+  department-of:   (it: "Dipartimento di",               en: "Department of"),
+  bachelor-in:     (it: "Corso di Laurea in",            en: "Bachelor Degree in"),
+  master-in:       (it: "Corso di Laurea Magistrale in", en: "Master Degree in"),
+  class:           (it: "Classe",                        en: "Class"),
+  advisor:         (it: "Relatore",                      en: "Advisor"),
+  coadvisor:       (it: "Correlatore",                   en: "Co-advisor"),
+  thesis:          (it: "Tesi di Laurea",                en: "Thesis"),
+  master-thesis:   (it: "Tesi di Laurea Magistrale",     en: "Master thesis"),
+  student-number:  (it: "Matricola n.",                  en: "Student number"),
+  student-numbers: (it: "Matricole n.",                  en: "Student numbers"),
+  academic-year:   (it: "Anno Accademico",               en: "Academic Year"),
+  candidate:       (it: "Candidato",                     en: "Candidate"),
+  candidates:      (it: "Candidati",                     en: "Candidates"),
 )
 
 #let tr(s) = context {
@@ -37,7 +39,7 @@
   degree,
   advisor,
   coadvisor,
-  author,
+  authors,
 ) = page[
       #align(center)[
         #text(size: large)[UNIVERSITÀ DEGLI STUDI DI BERGAMO]
@@ -69,11 +71,14 @@
       ]
 
       #align(right, block(align(left)[
-        #tr("master-thesis")
-
-        #author.name
-
-        #tr("student-number") #author.number
+        #tr("master-thesis") \
+        #authors.map(a => a.name).join(", ") \
+        #if authors.len() > 1 {
+          [#tr("student-numbers") \ ]
+        } else {
+          tr("student-number")
+        }
+        #authors.map(a => [#a.number]).join(", ")
       ]))
 
       #v(1fr)
@@ -89,7 +94,7 @@
   degree,
   advisor,
   coadvisor,
-  author,
+  authors,
 ) = page[
   #set par(first-line-indent: 0pt)
   #image("images/unibg-logo-wide.png", width: 8.79cm)
@@ -117,11 +122,17 @@
     #v(1fr)
 
     #columns[
-      #tr("candidate"):
+      #if authors.len() > 1 { tr("candidates") } else { tr("candidate") }:
 
-      #author.name
+      #authors.map(a => a.name).join(", ")
 
-      #tr("student-number") #author.number
+      #if authors.len() > 1 {
+        tr("student-numbers")
+      } else {
+        tr("student-number")
+      }
+
+      #authors.map(a => [#a.number]).join(", ")
 
       #colbreak()
 
@@ -159,9 +170,8 @@
   ),
   advisor: none,
   coadvisor: none,
-  author: (
-    name: none,
-    number: none,
+  authors: (
+    (name: none, number: none)
   ),
   show-outline: (
     figures: false,
@@ -215,9 +225,9 @@
 
   let deg = degree.at("type", default: "master")
   if deg == "master" {
-    master-front-page(title, subtitle, degree, advisor, coadvisor, author)
+    master-front-page(title, subtitle, degree, advisor, coadvisor, authors)
   } else if deg == "bachelor" {
-    bachelor-front-page(title, subtitle, degree, advisor, coadvisor, author)
+    bachelor-front-page(title, subtitle, degree, advisor, coadvisor, authors)
   }
 
   align(horizon)[

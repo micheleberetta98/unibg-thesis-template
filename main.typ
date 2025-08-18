@@ -5,15 +5,14 @@
 #show: unibg.with(
   title: "A Seclab Thesis",
   subtitle: "A Seclab Subtitle",
-  author: (
-    name: "John Doe",
-    number: 177013,
+  authors: (
+    (name: "John Doe", number: 177013),
   ),
   degree: (
     name: "Ingegneria Informatica",
     department: "Ingegneria Gestionale, dell'Informazione e della Produzione",
     class: "LM-32",
-    type: "master",
+    type: "bachelor",
     year: "2021/2022",
   ),
   advisor: "Chiar.mo Prof. John Smith",

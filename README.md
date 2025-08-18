@@ -50,9 +50,8 @@ This is all you need, it should be self explanatory.
 #show: unibg.with(
   title: "A Seclab Thesis",
   subtitle: "A Seclab Subtitle",
-  author: (
-    name: "John Doe",
-    number: 177013,
+  authors: (
+    (name: "John Doe", number: 177013),
   ),
   degree: (
     name: "Ingegneria Informatica",
