@@ -34,8 +34,10 @@
 \begin{flushright}
   \begin{tabular}{@{}l@{}}
     {\@trTesiLaureaM} \\
-    \@author \\
-    \@trStudentNumber~\@studentid
+    \@authors \\
+    \ifthenelse{\equal{\arabic{@studentidcount}}{1}}
+      {\@trStudentNumber~\@studentids}
+      {\@trStudentNumbers: \\ \@studentids}
   \end{tabular}
 \end{flushright}
 

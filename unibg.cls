@@ -85,8 +85,29 @@
 \newcommand{\class}[1]{\newcommand{\@class}{#1}}
 \newcommand{\advisor}[1]{\newcommand{\@advisor}{#1}}
 \newcommand{\coadvisor}[1]{\renewcommand{\@coadvisor}{#1}}
-\newcommand{\studentid}[1]{\newcommand{\@studentid}{#1}}
+% \newcommand{\studentid}[1]{\newcommand{\@studentid}{#1}}
 \newcommand{\academicyear}[1]{\newcommand{\@academicyear}{#1}}
+
+% ----------------------- Multi author support
+\newcounter{@authorcount}
+\newcommand{\@authors}{}
+
+\newcounter{@studentidcount}
+\newcommand{\@studentids}{}
+
+\renewcommand{\author}[1]{
+  \ifthenelse{\equal{\@authors}{}}
+    {\renewcommand{\@authors}{#1}}
+    {\g@addto@macro{\@authors}{, #1}}
+  \stepcounter{@authorcount}
+}
+
+\newcommand{\studentid}[1]{
+  \ifthenelse{\equal{\@studentids}{}}
+    {\renewcommand{\@studentids}{#1}}
+    {\g@addto@macro{\@studentids}{, #1}}
+  \stepcounter{@studentidcount}
+}
 
 \newenvironment{changemargin}[2]{
   \list{}{\rightmargin#2\leftmargin#1}\item[]

@@ -82,7 +82,7 @@ You can choose between:
 | `\department`   | ✔️        | The [department](https://www.unibg.it/ateneo/organizzazione/dipartimenti) of your course |
 | `\course`       | ✔️        | The official name of your course                                                         |
 | `\class`        | ✔️        | The degree's class (check your course webpage)                                           |
-| `\author`       | ✔️        | You (I hope)                                                                             |
+| `\author`       | ✔️        | You (I hope), you can put multiple authors, see FAQ                                      |
 | `\studentid`    | ✔️        | Your student number                                                                      |
 | `\academicyear` | ✔️        | The academic year of your degree                                                         |
 
@@ -95,6 +95,17 @@ You can choose between:
 | `\toc[opts]` | The table of contents      | Comma-separated list of zero or more among `figures`, `tables` and `listings` |
 
 ## FAQs
+
+- *Can I have multiple authors?*
+
+  Yes, you can. Just use multiple `\author` and `\studentid`, such as
+  ```latex
+  \author{Author 1}
+  \studentid{First number}
+
+  \author{Author 2}
+  \studentid{Second number}
+  ```
 
 - *Live preview doesn't work*
 
