@@ -3,9 +3,9 @@
 A simple (unofficial) LaTeX template following the official
 [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
-*Also, checkout the Typst branch!*
+:tada: *Also, checkout the [Typst branch](https://github.com/micheleberetta98/unibg-thesis-template/tree/typst)!* :tada:
 
-## :warning: Important note
+## Important note
 
 This template is completely free of use.
 However, as highlighted in the MIT license, you have to give credit in your thesis
