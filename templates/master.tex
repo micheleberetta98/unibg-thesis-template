@@ -25,10 +25,11 @@
 \end{flushleft}
 
 \ifthenelse{\equal{\@coadvisor}{}}{}{
-  \begin{flushleft}
-    \@trCoAdvisor \\
-    \@coadvisor
-  \end{flushleft}
+\begin{flushleft}
+    \ifthenelse{\equal{\arabic{@coadvisorcount}}{1}}
+      {\@trCoAdvisor~\@coadvisor}
+      {\@trCoAdvisors: \\ \@coadvisor}
+\end{flushleft}
 }
 
 \begin{flushright}
