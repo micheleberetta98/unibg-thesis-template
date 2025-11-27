@@ -26,9 +26,9 @@
 
 \ifthenelse{\equal{\@coadvisor}{}}{}{
 \begin{flushleft}
-    \ifthenelse{\equal{\arabic{@coadvisorcount}}{1}}
-      {\@trCoAdvisor~\@coadvisor}
-      {\@trCoAdvisors: \\ \@coadvisor}
+  \ifthenelse{\equal{\arabic{@coadvisorcount}}{1}}
+    {\@trCoAdvisor: \\ \@coadvisor}
+    {\@trCoAdvisors: \\ \@coadvisor}
 \end{flushleft}
 }
 

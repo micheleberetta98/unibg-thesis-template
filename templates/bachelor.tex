@@ -37,9 +37,9 @@
   \vspace{0.5cm}
   
   \ifthenelse{\equal{\@coadvisor}{}}{}{
-      \ifthenelse{\equal{\arabic{@coadvisorcount}}{1}}
-        {\@trCoAdvisor~\@coadvisor}
-        {\@trCoAdvisors: \\ \@coadvisor}
+    \ifthenelse{\equal{\arabic{@coadvisorcount}}{1}}
+      {\@trCoAdvisor: \\ \textit{\@coadvisor}}
+      {\@trCoAdvisors: \\ \textit{\@coadvisor}}
   }
 
   \end{multicols}
