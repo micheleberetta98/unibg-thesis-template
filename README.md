@@ -3,7 +3,7 @@
 A simple (unofficial) LaTeX template following the official
 [UniBG formatting rules](https://www.unibg.it/studiare/frequentare/laurearsi/frontespizi).
 
-:tada: *Also, checkout the [Typst branch](https://github.com/micheleberetta98/unibg-thesis-template/tree/typst)!* :tada:
+:tada: *Also, checkout the [Typst version](https://github.com/micheleberetta98/unibg-thesis-typst)!* :tada:
 
 ## Important note
 
