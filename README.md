@@ -107,6 +107,15 @@ You can choose between:
   \studentid{Second number}
   ```
 
+- *Can I have multiple Co-advisors?*
+
+  Yes, you can. Just use multiple `\coadvisor`, such as
+  ```latex
+  \coadvisor{Co-advisor 1}
+
+  \coadvisor{Co-advisor 2}
+  ```
+
 - *Live preview doesn't work*
 
   If you use `latexmk`, you have to configure it in order to [support live updates](https://mg.readthedocs.io/latexmk.html#configuration-files).

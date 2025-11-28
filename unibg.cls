@@ -77,7 +77,7 @@
 
 % ----------------------- Title page
 \newcommand{\@subtitle}{}
-\newcommand{\@coadvisor}{}
+% \newcommand{\@coadvisor}{}
 
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
 \newcommand{\department}[1]{\newcommand{\@department}{#1}}
@@ -107,6 +107,17 @@
     {\renewcommand{\@studentids}{#1}}
     {\g@addto@macro{\@studentids}{, #1}}
   \stepcounter{@studentidcount}
+}
+
+% ----------------------- Multi co-advisor support
+\newcommand{\@coadvisor}{}
+\newcounter{@coadvisorcount}
+
+\renewcommand{\coadvisor}[1]{
+  \ifthenelse{\equal{\@coadvisor}{}}
+    {\renewcommand{\@coadvisor}{#1}}
+    {\g@addto@macro{\@coadvisor}{\newline #1}}
+  \stepcounter{@coadvisorcount}
 }
 
 \newenvironment{changemargin}[2]{
