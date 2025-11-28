@@ -107,14 +107,7 @@ You can choose between:
   \studentid{Second number}
   ```
 
-- *Can I have multiple Co-advisors?*
-
-  Yes, you can. Just use multiple `\coadvisor`, such as
-  ```latex
-  \coadvisor{Co-advisor 1}
-
-  \coadvisor{Co-advisor 2}
-  ```
+  You can do the same with co-advisors.
 
 - *Live preview doesn't work*
 

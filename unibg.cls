@@ -77,7 +77,6 @@
 
 % ----------------------- Title page
 \newcommand{\@subtitle}{}
-% \newcommand{\@coadvisor}{}
 
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
 \newcommand{\department}[1]{\newcommand{\@department}{#1}}
